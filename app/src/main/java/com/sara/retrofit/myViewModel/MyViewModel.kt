@@ -13,7 +13,7 @@ class MyViewModel(repository: MyRepository): ViewModel() {
 
     init {
         viewModelScope.launch {
-            repository.categories
+            repository.getCategories()
         }
     }
 }

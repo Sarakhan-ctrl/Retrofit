@@ -47,6 +47,9 @@ dependencies {
     // Retrofit Gson Converter
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 
+    // Coroutines
+    implementation()
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

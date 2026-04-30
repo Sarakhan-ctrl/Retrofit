@@ -6,13 +6,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitInstance {
 
     private const val BASE_URL="https://jsonplaceholder.typicode.com/"
-    private fun instance(): Retrofit{
-        return Retrofit.Builder()
+    val api:ApiGet by lazy{
+            Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+            .create(ApiGet::class.java)
+        }
     }
-    fun getApi(): ApiGet{
-        return instance().create(ApiGet::class.java)
-    }
-}

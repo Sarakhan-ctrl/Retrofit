@@ -15,6 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.sara.retrofit.ui.theme.RetrofitTheme
+import android.compose.runtime.LaunchedEffect
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,16 +24,13 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RetrofitTheme {
-                Box(contentAlignment = Alignment.TopStart, modifier = Modifier.fillMaxSize()){
-                    LazyColumn(modifier = Modifier.fillMaxSize()){
-                        item {
-                            Text()
-                        }
-                    }
-                }
-            }
+                val repository=MyRepository(RetrofitInstance.api)
+                val viewmodel=MyViewModel(repository)
+
+                ListScreen(viewModel=viewModel)
         }
     }
 }
+
 
 
