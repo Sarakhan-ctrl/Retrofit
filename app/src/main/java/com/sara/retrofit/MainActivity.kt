@@ -1,21 +1,14 @@
 package com.sara.retrofit
 
+import ListScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.sara.retrofit.ui.theme.RetrofitTheme
-import android.compose.runtime.LaunchedEffect
+import com.sara.retrofit.myRetrofit.RetrofitInstance
+import com.sara.retrofit.myViewModel.MyViewModel
+import com.sara.retrofit.repository.MyRepository
 
 
 class MainActivity : ComponentActivity() {
@@ -24,10 +17,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RetrofitTheme {
-                val repository=MyRepository(RetrofitInstance.api)
-                val viewmodel=MyViewModel(repository)
+                val repository = MyRepository(RetrofitInstance.api)
+                val viewmodel = MyViewModel(repository)
 
-                ListScreen(viewModel=viewModel)
+                ListScreen(viewModel = viewmodel)
+            }
         }
     }
 }
